@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'materializecssform',
     'apps.profesional',
+    'apps.news',
+    'apps.paciente',
 ]
 
 MIDDLEWARE = [
