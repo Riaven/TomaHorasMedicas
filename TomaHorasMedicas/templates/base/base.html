@@ -52,6 +52,58 @@
 		  </nav>
 	{% endblock %}
 
+
+	<main>
+	{% block content%}
+	
+	<h1>Prueba</h1>
+
+
+	{% endblock %}
+     </main>
+	<div id="offlinedata">
+		<!-- the news will get displayed here from indexedDB in offline mode -->
+	</div>
+
+
+	<!--FOOTER con materializecss-->
+
+	{% block footer %}
+
+
+	<footer class="page-footer">
+		<div class="container">
+		  <div class="row">
+			<div class="col l6 s12">
+			  <h5 class="white-text">Some Title</h5>
+			  <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="col l2 offset-l2 s6">
+			  <h6>About</h6>
+			  <ul>
+				<li><a href="" class="grey-text text-lighten-3">Help</a></li>
+				<li><a href="" class="grey-text text-lighten-3">Contact</a></li>
+				<li><a href="" class="grey-text text-lighten-3">Suggestions</a></li>
+			  </ul>
+			</div>
+			<div class="col l2 s6">
+			  <h6>Developer</h6>
+			  <ul>
+				<li><a href="" class="grey-text text-lighten-3">Source</a></li>
+				<li><a href="" class="grey-text text-lighten-3">Contribute</a></li>
+				<li><a href="" class="grey-text text-lighten-3">API Docs</a></li>
+			  </ul>
+			</div>
+		  </div>
+		</div>
+		<div class="footer-copyright">
+		  <div class="container">Made by <a href="">Me </a></div>
+		</div>
+	  </footer>
+	{% endblock %}
+
+	
+	  <!--JAVASCRIPT para materialize-->
 	{% block javascript %}
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	 crossorigin="anonymous"></script>
@@ -78,53 +130,6 @@
 	<script type="text/javascript" src="{% static 'js/idbop.js' %}"></script>
 
 	{% endblock javascript %}
-
-	{% block content%}
-	<h1>Prueba</h1>
-
-
-	{% endblock %}
-
-	<div id="offlinedata">
-		<!-- the news will get displayed here from indexedDB in offline mode -->
-	</div>
-
-	{% block footer %}
-
-	<footer>
-		
-        <footer class="page-footer">
-			<div class="container">
-			  <div class="row">
-				<div class="col l6 s12">
-				  <h5 class="white-text">Footer Content</h5>
-				  <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-				</div>
-				<div class="col l4 offset-l2 s12">
-				  <h5 class="white-text">Links</h5>
-				  <ul>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-				  </ul>
-				</div>
-			  </div>
-			</div>
-			<div class="footer-copyright">
-			  <div class="container">
-			  © 2014 Copyright Text
-			  <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-			  </div>
-			</div>
-		  </footer>
-
-
-	</footer>
-
-	{% endblock %}
-
-	
 
 </body>
 
