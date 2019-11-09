@@ -8,6 +8,6 @@ def index (request):
 #Quienes somos vista
 def somos(request):
     try:
-        return render(request, 'somos.html')
+        return render(request, 'principal/quienessomos.html')
     except:
         raise Http404("Error")
