@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% load materializecss %}
+
+{% block content %}
+{% csrf_token %}
+<div class="container"></div>
+
+    <h1 class="titulo"> Crear noticia </h1>
+    <form method = "post">
+
+        <div class="row">
+
+            {{ form.titulo|materializecss:'s6 ' }}
+            {{ form.contenido|materializecss:'s6' }}
+            {{ form.fechaPublicacion|materializecss:'s6' }}
+        </div>
+    </form>
+
+</div>
+{% endblock %}

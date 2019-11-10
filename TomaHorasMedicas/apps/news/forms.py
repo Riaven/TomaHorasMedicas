@@ -2,8 +2,7 @@
 from django import forms
 #Para importar el modelo con los datos de noticias
 from apps.news.models import Noticias
-#Fecha
-import datetime
+
 
 class NoticiasForm(forms.ModelForm):
     class Meta:
@@ -25,5 +24,5 @@ class NoticiasForm(forms.ModelForm):
         widgets = {
             'titulo' :forms.TextInput(attrs={'class':'input-field'}),
             'contenido' : forms.TextInput(attrs={'class':'input-field'}),
-            'fechaPublicacion' : forms.DateField(initial = datetime.date.today),
+            'fechaPublicacion' : forms.DateInput(attrs={'class':'datepicker'}),
         }
