@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
+from apps.news.forms import NoticiasForm
 
 #Index
 def index (request):
@@ -14,5 +15,9 @@ def somos(request):
     except:
         raise Http404("Error")
 
-#def mostrarNoticia(request, idNoticia):
-    
+def crearNoticia(request, idNoticia):
+    if request.method == 'POST':
+        form = NoticiasForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('index')
