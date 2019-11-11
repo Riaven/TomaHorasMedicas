@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #Para agregar lo de las noticias
     url(r'^inicio/', include ('apps.news.urls')),
+    path('profesionales/', include('apps.profesional.urls')),
 ]

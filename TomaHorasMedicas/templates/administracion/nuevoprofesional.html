@@ -2,9 +2,25 @@
 {% load staticfiles %}
 {% load materializecss %}
 
+{% block title %} Crear profesional {% endblock %}
+
 {% block content %}
 {% csrf_token %}
+<div class="container"></div>
 
-<h1>Nuevo profesional</h1>
+    <h1 class="titulo"> Crear profesional </h1>
+    <form method = "post">
+
+        <div class="row">
+            {{ form.nombre|materializecss:'s6 ' }}
+            {{ form.sector|materializecss:'s6' }}
+            {{ form.horarioAtencion|materializecss:'s6' }}
+            {{ form.foto|materializecss:'s6' }}
+            {{ form.areaAtencion|materializecss:'s6' }}
+        </div>
+    </form>
+
+</div>
+
 
 {% endblock %}

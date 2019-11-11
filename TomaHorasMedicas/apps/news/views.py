@@ -15,6 +15,7 @@ def somos(request):
     except:
         raise Http404("Error")
 
+# !Falta login required y confirmar que sea super usuario
 def crearNoticia(request):
     if request.method == 'POST':
         form = NoticiasForm(request.POST)

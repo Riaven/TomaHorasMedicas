@@ -24,5 +24,5 @@ class NoticiasForm(forms.ModelForm):
         widgets = {
             'titulo' :forms.TextInput(attrs={'class':'input-field'}),
             'contenido' : forms.TextInput(attrs={'class':'input-field'}),
-            'fechaPublicacion' : forms.DateInput(attrs={'class':'datepicker'}),
+            'fechaPublicacion' : forms.TextInput(attrs={'class':'datepicker'}),
         }
