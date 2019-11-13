@@ -17,6 +17,7 @@ from django.contrib import admin
 #from apps.news import urls as urlNoticias
 from django.urls import path
 from django.conf.urls import include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns,static
 
 
 urlpatterns = [

@@ -7,4 +7,15 @@
 
 <h1>Lista de profesionales</h1>
 
+{% if profesionales %}
+    {% for profesional in profesionales %}
+
+    <h5>{{ profesional.nombre }}</h5>
+    {{profesional.foto.url}}
+
+     <img src= "{{ profesional.foto.url }}" alt="foto profesionals">
+    {% endfor %}
+    {% else %}
+    <h1>No hay profesionales</h1>
+{% endif %}
 {% endblock %}

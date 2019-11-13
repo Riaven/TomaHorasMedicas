@@ -1,8 +1,9 @@
-from apps.profesional.views import NuevoProfesional
+from apps.profesional.views import NuevoProfesional, listarProfesionales
 from django.conf.urls import include, url
 
 
 urlpatterns = [
-   # url(r'^$', index, name='profesionales'),
+    url(r'^$', listarProfesionales, name='profesionales'),
     url(r'^nuevo$', NuevoProfesional, name="nuevoprofesional"), 
+
 ]
