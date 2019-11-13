@@ -9,8 +9,11 @@ class AreaAtencion (models.Model):
         return self.nombre
 #Profesional con foto
 class Profesional (models.Model):
+    #opciones para sector
+    TIPO_SECTOR = (('R', 'ROJO'),
+                   ('A', 'AZUL'))
     nombre = models.CharField(max_length=50)
-    sector = models.CharField(max_length=15)
+    sector = models.CharField(max_length=15, choices=TIPO_SECTOR, default=TIPO_SECTOR[1])#Azul siempre estará seleccionado como defecto
     horarioAtencion = models.CharField(max_length=15)
     foto = models.ImageField(upload_to='static/images/profesionales/')
     areaAtencion = models.ForeignKey(AreaAtencion, default =1, on_delete = models.CASCADE)
