@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.profesional',
     'apps.news',
     'apps.paciente',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [

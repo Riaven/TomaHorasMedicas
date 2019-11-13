@@ -15,13 +15,13 @@ class ProfesionalForm (forms.ModelForm):
             'nombre' : 'Nombre',
             'sector' : 'Sector',
             'horarioAtencion' : 'Horario de Atención',
-            'foto' : 'Profesional',
+            'foto' : 'CARGAR FOTO',
             'areaAtencion' : 'Área de atención',
         }
         widgets = {
             'nombre' : forms.TextInput(attrs={'class' : 'input-field'}),
             'sector' : forms.TextInput(attrs={'class' : 'input-field'}),
             'horarioAtencion' : forms.TextInput(attrs={'class' : 'input-field'}),
-            'foto' : forms.ImageField(),
+            #'foto' : forms.ImageField(), <-- la foto no debe de llebar attrs
             'areaAtencion' : forms.Select(attrs={'class' : 'select'}),
         }
