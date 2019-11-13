@@ -1,6 +1,7 @@
 from django import forms
 from .models import Profesional
 
+
 class ProfesionalForm (forms.ModelForm):
     class Meta():
         model = Profesional
@@ -25,3 +26,4 @@ class ProfesionalForm (forms.ModelForm):
             #'foto' : forms.ImageField(), <-- la foto no debe de llebar attrs
             'areaAtencion' : forms.Select(attrs={'class' : 'select'}),
         }
+        
