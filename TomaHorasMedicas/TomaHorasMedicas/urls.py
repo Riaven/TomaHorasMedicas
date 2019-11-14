@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns,static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -25,4 +26,4 @@ urlpatterns = [
     #Para agregar lo de las noticias
     url(r'^inicio/', include ('apps.news.urls')),
     path('profesionales/', include('apps.profesional.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
