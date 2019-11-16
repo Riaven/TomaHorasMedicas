@@ -1,0 +1,28 @@
+{% load materializecss %}
+
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">NUEVO</a>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <div class="row"><h4 class="titulo-centrado">CREAR NUEVO PROFESIONAL</h4></div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+                
+            <div class="row">
+                {{ form.nombre|materializecss:'s6 ' }}
+                {{ form.sector|materializecss:'s6' }}
+                {{ form.horarioAtencion|materializecss:'s6' }}
+                {{ form.foto|materializecss:'s6' }}
+                {{ form.areaAtencion|materializecss:'s6' }}
+            </div>
+        
+            <div class="row center">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
+                    <i class="material-icons right">done</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -21,17 +21,9 @@ def nuevoProfesional(request):
 
 #Listar profesionales
 def listarProfesionales(request):
-    if request.method == 'POST':
-        #Envia un post y además solicita subir un archivo
-        form = ProfesionalForm(request.POST, request.FILES) 
-        if form.is_valid():
-            form.save()
-        return redirect('profesionales')
-    else:
-        form = ProfesionalForm()
-
     profesional = Profesional.objects.all()
-    contexto = {'profesionales':profesional,
-                 'form':form}
+    #Se le pasa el formulario para que también lo cargue
+    contexto = {'profesionales':profesional, 'form':ProfesionalForm}
+     
     return render (request, 'administracion/listaprofesional.html', contexto)
 
