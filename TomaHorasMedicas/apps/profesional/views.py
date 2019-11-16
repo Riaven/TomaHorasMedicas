@@ -6,6 +6,7 @@ from .forms import ProfesionalForm
 #Crear nuevo profesional
 def nuevoProfesional(request):
     if request.method == 'POST':
+        #Envia un post y además solicita subir un archivo
         form = ProfesionalForm(request.POST, request.FILES) 
         if form.is_valid():
             form.save()
@@ -20,7 +21,17 @@ def nuevoProfesional(request):
 
 #Listar profesionales
 def listarProfesionales(request):
+    if request.method == 'POST':
+        #Envia un post y además solicita subir un archivo
+        form = ProfesionalForm(request.POST, request.FILES) 
+        if form.is_valid():
+            form.save()
+        return redirect('profesionales')
+    else:
+        form = ProfesionalForm()
+
     profesional = Profesional.objects.all()
-    contexto = {'profesionales':profesional}
+    contexto = {'profesionales':profesional,
+                 'form':form}
     return render (request, 'administracion/listaprofesional.html', contexto)
 
