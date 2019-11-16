@@ -8,12 +8,18 @@
 
     <h1 class="titulo"> Crear noticia </h1>
     <form method = "post">
-
+            {% csrf_token %}
         <div class="row">
             {{ form.titulo|materializecss:'s6 ' }}
             {{ form.contenido|materializecss:'s6' }}
             {{ form.fechaPublicacion|materializecss:'s6' }}
         </div>
+
+        <div class="row center">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
+                    <i class="material-icons right">done</i>
+                </button>
+            </div>
     </form>
 
 </div>
