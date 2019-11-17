@@ -7,7 +7,7 @@
 {% csrf_token %}
 
 <h1 class="titulo-centrado">Lista de profesionales</h1>
-
+{% include 'administracion/nuevoprofesional.html' with form=form %}
 
 
 {% if profesionales %}
@@ -22,7 +22,7 @@
   
 {% endif %}
 
-{% include 'administracion/nuevoprofesional.html' with form=form %}
+
 
 {% endblock %}
 

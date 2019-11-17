@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .models import Profesional
 from .forms import ProfesionalForm
 # Create your views here.
@@ -13,7 +14,7 @@ def nuevoProfesional(request):
         return redirect('profesionales')
     else:
         form = ProfesionalForm()
-    return render(request, 'administracion/nuevoprofesional.html', {'form':form})
+    return HttpResponse('administracion/nuevoprofesional.html')
 
 #Modificar profesional
 
@@ -21,9 +22,12 @@ def nuevoProfesional(request):
 
 #Listar profesionales
 def listarProfesionales(request):
+    #Carga nuevo profesional
+    nuevoProfesional(request)
+    #lista a todos los profesionales
     profesional = Profesional.objects.all()
-    #Se le pasa el formulario para que también lo cargue
-    contexto = {'profesionales':profesional, 'form':ProfesionalForm}
-     
+    
+    contexto = {'profesionales':profesional, 'form': ProfesionalForm()}
+    
     return render (request, 'administracion/listaprofesional.html', contexto)
 
