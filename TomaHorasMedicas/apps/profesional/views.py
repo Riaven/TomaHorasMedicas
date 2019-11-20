@@ -14,6 +14,7 @@ def nuevoProfesional(request):
         return redirect('profesionales')
     else:
         form = ProfesionalForm()
+        #Despliega solo un html
     return HttpResponse('administracion/nuevoprofesional.html')
 
 #Modificar profesional

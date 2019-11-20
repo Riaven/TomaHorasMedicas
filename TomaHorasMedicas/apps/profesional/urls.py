@@ -5,6 +5,6 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^$', listarProfesionales, name='profesionales'),
-    url(r'^nuevo$', nuevoProfesional, name="nuevoprofesional"), 
+    #url(r'^nuevo$', nuevoProfesional, name="nuevoprofesional"), 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)# se debe de agregar a las url de cada a´pp
