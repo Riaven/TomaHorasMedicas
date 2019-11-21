@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% get_media_prefix %}
+{% load materializecss %}
+{% block content %}
+
+
+<div class="row"><h4 class="titulo-centrado">CREAR NUEVO PACIENTE</h4></div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+                
+            <div class="row">
+                {{ form.as_p}}
+            </div>
+        
+            <div class="row center">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
+                    <i class="material-icons right">done</i>
+                </button>
+            </div>
+        </form>
+
+
+
+{% endblock %}

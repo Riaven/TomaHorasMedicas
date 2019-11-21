@@ -1,10 +1,11 @@
 from django import forms
 from apps.paciente.models import Paciente
 
-class PacienteForm(froms.ModelForm):
+class PacienteForm(forms.ModelForm):
     class Meta:
         model = Paciente
         fields = [
+            'rut',
             'nombre',
             'apellido',
             'fechaNacimiento',
@@ -17,6 +18,7 @@ class PacienteForm(froms.ModelForm):
             'altura',
         ]
         labels ={
+            'rut' : 'RUN',
             'nombre' : 'Nombre',
             'apellido' :'Apellidos',
             'fechaNacimiento' : 'Fecha de Nacimiento',
@@ -28,4 +30,16 @@ class PacienteForm(froms.ModelForm):
             'peso' : 'Peso',
             'altura' : 'Altura',
         }
-        
+        widgets = {
+            'rut' : forms.TextInput(attrs={'class' : 'input-field'}),
+            'nombre' : forms.TextInput(attrs={'class' : 'input-field'}),
+            'apellido' : forms.TextInput(attrs={'class' : 'input-field'}),
+            'fechaNacimiento' : forms.TextInput(attrs={'class':'datepicker'}),
+            'direccion' : forms.TextInput(attrs={'class' : 'input-field'}),
+            'telefono' : forms.TextInput(attrs={'class' : 'input-field'}),
+            'estadoCivil' :forms.Select(attrs={'class' : 'select'}),
+            'numeroHijos' : forms.NumberInput(),
+            'problemasSalud' : forms.Select(attrs={'class' : 'select'}),
+            'peso' : forms.NumberInput(),
+            'altura' : forms.NumberInput(),
+        }

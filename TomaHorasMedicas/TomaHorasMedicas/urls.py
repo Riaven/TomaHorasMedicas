@@ -26,4 +26,5 @@ urlpatterns = [
     #Para agregar lo de las noticias
     url(r'^inicio/', include ('apps.news.urls')),
     path('profesionales/', include('apps.profesional.urls')),
+    path('pacientes/', include('apps.paciente.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
