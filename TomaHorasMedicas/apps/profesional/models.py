@@ -11,8 +11,10 @@ class AreaAtencion (models.Model):
 #Profesional con foto
 class Profesional (models.Model):
     #opciones para sector
-    TIPO_SECTOR = (('R', 'ROJO'),
-                   ('A', 'AZUL'))
+    TIPO_SECTOR = (('ROJO', 'ROJO'),
+                   ('AZUL', 'AZUL'),
+                   ('AMARILLO', 'AMARILLO'),
+                   ('VERDE', 'VERDE'))
     nombre = models.CharField(max_length=50)
     sector = models.CharField(max_length=15, choices=TIPO_SECTOR, default=TIPO_SECTOR[1])#Azul siempre estará seleccionado como defecto
     horarioAtencion = models.CharField(max_length=15)

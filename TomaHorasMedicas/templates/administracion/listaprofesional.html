@@ -6,16 +6,49 @@
 {% block content %}
 {% csrf_token %}
 
-<h1 class="titulo-centrado">Lista de profesionales</h1>
-{% include 'administracion/nuevoprofesional.html' with form=form %}
+<div class="row">
+    <h1 class="titulo-centrado">Lista de profesionales</h1>
+    <div class="col s6 offset-s10">
+            {% include 'administracion/nuevoprofesional.html' with form=form %}
+    </div>
+</div>
+
+
+    
+
+
 
 
 {% if profesionales %}
     {% for profesional in profesionales %}
 
-    <h5>{{ profesional.nombre }}</h5>
     <hr>
-     <img src= "{{profesional.foto.url}}" alt="foto profesionals">
+    <div class="row">
+        <div class="col s4">
+            <img class="responsive-img" src= "{{profesional.foto.url}}" alt="foto profesional">
+        </div>
+        <div class="col s4">
+            <h4>{{ profesional.nombre }}</h4>
+            <h5>{{ profesional.areaAtencion}}</h5>
+        </div>
+
+        <div class="col s4">
+            <h5>{{ profesional.sector }}</h5>
+            <h5>{{ profesional.horarioAtencion }}</h5>
+        </div>
+
+        <div class="col s4">
+            <button class="btn waves-effect waves-light"  name="action">Eliminar
+                <i class="material-icons right">done</i>
+            </button>
+
+            <button class="btn waves-effect waves-light"  name="action">Modificar
+                <i class="material-icons right">done</i>
+            </button>
+        </div>
+    </div>
+    
+    
     {% endfor %}
     {% else %}
     <h1>No hay profesionales</h1>

@@ -38,7 +38,6 @@ class PacienteForm(forms.ModelForm):
             'apellido' : forms.TextInput(attrs={'class' : 'input-field'}),
             'fechaNacimiento' : forms.TextInput(attrs={'class':'datepicker'}),
             'direccion' : forms.TextInput(attrs={'class' : 'input-field'}),
-            #'email' : forms.EmailField(),
             'telefono' : forms.TextInput(attrs={'class' : 'input-field'}),
             'estadoCivil' :forms.Select(attrs={'class' : 'select'}),
             'numeroHijos' : forms.NumberInput(),

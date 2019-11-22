@@ -35,7 +35,7 @@
 	<title> {% block title %} Clínica [nombre]{% endblock %}</title>
 </head>
 
-<body ">
+<body>
 
 
 	{% block header %}
@@ -46,6 +46,7 @@
 			  <ul id="nav-mobile" class="right hide-on-med-and-down ">
 				<li><a href="">Quienes somos</a></li>
 				<li><a href="">Profesionales</a></li>
+				<li><a href="">Pacientes</a></li>
 				<li><a href="">Ingresar</a></li>
 			  </ul>
 			</div>
@@ -54,19 +55,11 @@
 
 
 	<main>
-	{% block content %}
-	
-	{% block form %}
-	
-	
-
-
-	{% endblock %}
-
-
-	{% endblock %}
-
-
+		<div class="container">
+				{% block content %}
+				{% endblock %}
+			
+		</div>
      </main>
 	<div id="offlinedata">
 		<!-- the news will get displayed here from indexedDB in offline mode -->

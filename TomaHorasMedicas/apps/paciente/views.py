@@ -7,7 +7,12 @@ from django.contrib.auth.models import User
 
 def crearUser(user, correo):
     contrasena = User.objects.make_random_password()
-    User.objects.create_user(username = user, email = correo, password = contrasena)
+    #Guarda la instancia creada en usuario
+    usuario =User.objects.create_user(username = user, email = correo, password = contrasena)
+    #Se modifica si está activo o no
+    usuario.is_active =False
+    #Se guarda al usuario
+    usuario.save()
 
 def nuevoPaciente(request):
     #Se van a recibir los datos que se están enviando en el POST
