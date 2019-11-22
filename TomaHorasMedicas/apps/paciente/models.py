@@ -18,6 +18,7 @@ class Paciente (models.Model):
     apellido = models.CharField(max_length=20)
     fechaNacimiento = models.DateField()
     direccion = models.CharField(max_length=100)
+    email = models.EmailField()
     telefono = models.CharField(max_length=9)
     estadoCivil = models.CharField(max_length=10, choices=ESTADO_CIVIL, default=ESTADO_CIVIL[0])
     numeroHijos = models.IntegerField()
