@@ -2,7 +2,13 @@ from django.shortcuts import render
 from .forms import RecuperarCuenta
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-# Create your views here.
+
+
+#Para poder enviar email
+from django.core import mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 
 #activar mi cuenta
 def activarCuenta(request):
@@ -25,12 +31,16 @@ def activarCuenta(request):
                 else:
                     #Cuando está inactivo, cambia el estado del usuario a activo
                     usuario.is_active = True
+                    #Obtiene el correo del usuario solicitado
+                    correo = usuario.email
                     #guarda los cambios del usuario
                     usuario.save()
-                return HttpResponse('User activado :)')
+                    enviaEmail(correo)
+                return HttpResponse('User activado :) al correo ' + correo)
                
-            except:
-                 return HttpResponse('El user no existe')
+            except Exception as e:
+                 return HttpResponse(e)
+
     #si el metodo el GET
     else:
         #En el caso de que sea GET, envía el formulario vacío
@@ -39,3 +49,11 @@ def activarCuenta(request):
     return render(request, 'login/activarcuenta.html', {'form': form})
 
 #Enviar email de recuperación de cuenta
+def enviaEmail(correo):
+    mensaje_html = render_to_string('login/cambiocontrasena.html')
+    asunto = 'Cambio de contraseña - Activación de cuenta'
+    contenido = strip_tags(mensaje_html)
+    envia = 'librerialmg@gmail.com'
+    
+
+    mail.send_mail(asunto, contenido, envia, [correo]) 

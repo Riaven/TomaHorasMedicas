@@ -133,3 +133,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # ISO 8601 datetime format to accept html5 datetime input values
 DATETIME_INPUT_FORMATS += ["%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M"]
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'librerialmg@gmail.com'
+EMAIL_HOST_PASSWORD = 'lapizlopez'
+
+EMAIL_PORT = 587
+ACCOUNT_EMAIL_VERIFICATION = 'none'
