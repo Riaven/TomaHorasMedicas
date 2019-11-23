@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load materializecss %}
+{% block content %}
+    <h2 class="titulo-centrado">Activar mi cuenta</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            
+        <div class="row">
+            {{ form.as_p}}
+            
+        </div>
+    
+        <div class="row center">
+            <button class="btn  waves-light" type="submit" name="action">Guardar
+                <i class="material-icons ">done</i>
+            </button>
+        </div>
+    </form>
+
+{% endblock %}
