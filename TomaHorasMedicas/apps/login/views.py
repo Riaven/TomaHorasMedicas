@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .forms import RecuperarCuenta
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-
+from django.contrib.auth.forms import PasswordResetForm
 
 #Para poder enviar email
 from django.core import mail
@@ -35,7 +35,11 @@ def activarCuenta(request):
                     correo = usuario.email
                     #guarda los cambios del usuario
                     usuario.save()
-                    enviaEmail(correo)
+                    
+                    #Asunto de activación de cuenta
+                    asunto = 'Cambio de contraseña - Activación de cuenta'
+                    cambiarContrasena(correo)
+                    #enviaEmail(correo, asunto)
                 return HttpResponse('User activado :) al correo ' + correo)
                
             except Exception as e:
@@ -48,12 +52,19 @@ def activarCuenta(request):
     #Retorna el formulario
     return render(request, 'login/activarcuenta.html', {'form': form})
 
-#Enviar email de recuperación de cuenta
-def enviaEmail(correo):
-    mensaje_html = render_to_string('login/cambiocontrasena.html')
-    asunto = 'Cambio de contraseña - Activación de cuenta'
+#Enviar email de recuperación de cuenta, recibe el correo al que se debe de enviar la recuperación 
+#y el asunto, ya que es de activar cuenta, tendrá otro asunto cuando sea de ha olvidado la contraseña
+def enviaEmail(correo, asunto):
+   # mensaje_html = render_to_string('login/cambiocontrasena.html')
     contenido = strip_tags(mensaje_html)
     envia = 'librerialmg@gmail.com'
     
 
-    mail.send_mail(asunto, contenido, envia, [correo]) 
+    #mail.send_mail(asunto, contenido, envia, [correo]) 
+
+def cambiarContrasena(correo):
+    template = 'login/cambiocontrasena.html'
+    form = PasswordResetForm({'email' : correo})
+    if form.is_valid():
+        return form.save(email_template_name=template, domain_override="localhost:8000")
+        

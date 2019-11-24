@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% get_media_prefix %}
+{% load materializecss %}
+{% block content %}
+
+<h1 class="titulo-centrado">Mi ficha</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        
+    <div class="row">
+        {{ form.as_p}}
+    </div>
+
+    <div class="row center">
+        <button class="btn waves-effect waves-light" >Aceptar
+            <i class="material-icons right">done</i>
+        </button>
+    </div>
+</form>
+
+{% endblock %}

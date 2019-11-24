@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.profesional',
     'apps.news',
     'apps.paciente',
+    'apps.login',
     'django_cleanup.apps.CleanupConfig',
 ]
 
