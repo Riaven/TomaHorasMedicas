@@ -62,5 +62,5 @@ def cambiarContrasena(correo):
         #Se guarda el formulario, enviándole un template del link para cambiar la pass
         # se sobreescribe el dominio
         
-        return form.save(email_template_name=template, domain_override="localhost:8000")
+        return form.save(email_template_name=template, domain_override="http://127.0.0.1:8000")
         
