@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% load materializecss %}
+{% block content %}
+{% csrf_token %}
+
+<div class="row">
+    <h1 class="titulo-centrado">Lista de pacientes</h1>
+    <div class="col s6 offset-s10">
+           
+    </div>
+</div>
+
+
+
+{% if pacientes %}
+    {% for paciente in pacientes %}
+
+    <hr>
+    <div class="row">
+        <div class="col s3">
+            <h4>{{ paciente.rut }}</h4>
+           
+        </div>
+
+        <div class="col s3">
+            <button class="btn waves-effect waves-light"  name="action">Eliminar
+                <i class="material-icons right">done</i>
+            </button>
+
+            <button class="btn waves-effect waves-light"  name="action">Modificar
+                <i class="material-icons right">done</i>
+            </button>
+        </div>
+    </div>
+    
+    
+    {% endfor %}
+    {% else %}
+    <h1>No hay pacientes</h1>
+  
+{% endif %}
+
+
+
+{% endblock %}
+

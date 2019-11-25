@@ -15,6 +15,23 @@ def crearUser(user, correo):
     #Se guarda al usuario
     usuario.save()
 
+#Eliminar user
+def eliminarUsuario(user_rut):
+    usuario = User.objects.get(username= user_rut)
+    #encuentra el usuario y lo elimina
+    usuario.delete()
+
+#Eliminar paciente
+def eliminarFicha(request, rut):
+    #Se obtiene el objeto que tenga el mismo rut que el de la ficha
+    ficha = Paciente.objects.get(rut = rut)
+    if request.method == 'POST':
+        # Se elimina la ficha
+        ficha.delete()
+        #Se elimina el usuario
+        eliminarUsuario(rut)
+        return redirect('listarfichas')
+
 #Para crear una nueva ficha médica
 def nuevoPaciente(request):
     #Se van a recibir los datos que se están enviando en el POST
@@ -35,6 +52,14 @@ def nuevoPaciente(request):
         form = PacienteForm()
     return render(request, 'administracion/paciente/nuevopaciente.html', {'form': form})
 
+#Listar pacientes
+def listarFichas(request):
+    paciente = Paciente.objects.all()
+    contexto = {'pacientes' : paciente}
+    return render(request, 'administracion/paciente/listapacientes.html', contexto)
+
+def modificarFicha(request, rut):
+    pass
 #Toma de horas
 
 #Un usuario no puede tomar más de una hora con un mismo profesional
