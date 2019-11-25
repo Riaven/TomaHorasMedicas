@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^inicio/', include ('apps.news.urls')),
     path('profesionales/', include('apps.profesional.urls')),
     path('pacientes/', include('apps.paciente.urls')),
-    path('login/', include('apps.login.urls')),
+    url('login/', include('apps.login.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

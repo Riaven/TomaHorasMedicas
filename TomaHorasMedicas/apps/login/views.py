@@ -54,7 +54,7 @@ def activarCuenta(request):
 #Enviar email de recuperación de cuenta, recibe el correo al que se debe de enviar la recuperación 
 #y el asunto, ya que es de activar cuenta, tendrá otro asunto cuando sea de ha olvidado la contraseña
 def cambiarContrasena(correo):
-    template = 'login/cambiocontrasena.html'
+    template = 'registration/password_reset_email.html'
     #Se rellena el formulario con el correo del usuario que se encontro con el rut
     form = PasswordResetForm({'email' : correo})
     #Se debe de comprobar el formulario, si no dará una exepcion
@@ -62,5 +62,5 @@ def cambiarContrasena(correo):
         #Se guarda el formulario, enviándole un template del link para cambiar la pass
         # se sobreescribe el dominio
         
-        return form.save(email_template_name=template, domain_override="http://127.0.0.1:8000")
+        return form.save(email_template_name=template, domain_override="localhost:8000" )
         
