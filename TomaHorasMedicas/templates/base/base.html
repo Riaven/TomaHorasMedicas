@@ -47,12 +47,19 @@
 				  <img  class='responsive-img' src="{% static 'images/logito.png' %}" width="170" height="90" alt="logo">
 			  </a>
 			  <ul id="nav-mobile" class="right hide-on-med-and-down ">
+					{% if user.is_authenticated %}
+				<li>Bienvenido {{request.user.username}} --</li>
+				{% endif %}
 				<li><a href="{% url 'quienessomos' %}">Quienes somos</a></li>
 				<li><a href="{% url 'profesionales' %}">Profesionales</a></li>
 				<li><a href="{% url 'pacientes' %}">Pacientes</a></li>
+				{% if user.is_authenticated == False %}
 				<li><a href="{% url 'login' %}">Ingresar</a></li>
+				{% endif %}
 				{% if user.is_authenticated %}
+				{% if request.user.is_superuser == False %}
 				<li><a href="{% url 'ver_mi_ficha' %}">Mi ficha</a></li>
+				{% endif %}
 				<li><a href="{% url 'logout' %}">Salir</a></li>
 				{% endif %}
 			  </ul>

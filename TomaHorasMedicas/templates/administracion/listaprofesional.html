@@ -35,8 +35,8 @@
         </div>
 
         <div class="col s3">
-            <h5>{{ profesional.sector }}</h5>
-            <h5>{{ profesional.horarioAtencion }}</h5>
+            <h5> Sector : {{ profesional.sector }}</h5>
+            <h5>Horario : {{ profesional.horarioAtencion }}</h5>
         </div>
         {% if request.user.is_superuser %}
         <div class="col s3">
