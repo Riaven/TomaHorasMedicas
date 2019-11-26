@@ -8,9 +8,11 @@
 
 <div class="row">
     <h1 class="titulo-centrado">Lista de profesionales</h1>
+    {% if request.user.is_superuser %}
     <div class="col s6 offset-s10">
             {% include 'administracion/nuevoprofesional.html' with form=form %}
     </div>
+    {% endif %}
 </div>
 
 

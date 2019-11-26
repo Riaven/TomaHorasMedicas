@@ -8,9 +8,12 @@
 
 <div class="row">
     <h1 class="titulo-centrado">Lista de pacientes</h1>
+    {% if request.user.is_superuser %}
     <div class="col s6 offset-s10">
-           
+
+           <a class="btn waves-effect waves-light green" href="{% url 'nuevo_paciente' %}">Nuevo paciente</a>
     </div>
+    {% endif %}
 </div>
 
 
@@ -24,6 +27,12 @@
             <h4>{{ paciente.rut }}</h4>
             <h4>{{ paciente.nombre }}  {{paciente.apellido}}</h4>
         </div>
+        <div class="col s4">
+            <h4>{{ paciente.fechaNacimiento }}</h4>
+            
+        </div>
+
+        {% if request.user.is_superuser %}
 
         <div class="col s3">
                 <a class="btn waves-effect waves-light red" href="{% url 'eliminar_ficha' paciente.rut %}">Eliminar
@@ -34,6 +43,8 @@
                         <i class="material-icons right">edit</i>
                 </a>
         </div>
+
+        {% endif%}
     </div>
     
     
