@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% load materializecss %}
+{% block title %} INICIO DE SESIÓN {% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="row center">
+            <h1>Bienvenido! :)</h1>
+        </div>
+
+        <div class="row">
+            <div class="col s3"></div>
+            <div class="col s6">
+                <div class="form-group">
+                    <label for="username">Nombre de usuario:</label>
+                    <input class="form-control" type="text" name="username">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s3"></div>
+            <div class="col s6">
+                <div class="form-group">
+                    <label for="username">Contraseña:</label>
+                    <input class="form-control" type="password" name="password">
+                </div>
+            </div>
+        </div>
+
+        <div class="row center">
+
+            <button class="btn waves-effect waves-light center" type="submit" name="action">Entrar</button><br>
+            
+
+        </div>
+
+
+</div>
+</form>
+
+</div>
+
+{% endblock %}

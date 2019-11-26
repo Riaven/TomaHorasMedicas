@@ -40,17 +40,25 @@
 
 	{% block header %}
 		<!--Navbar logo y opciones principales-->
+		<div class="navbar-fixed">
 		<nav>
 			<div class="nav-wrapper blue lighten-3">
-			  <a href="#" class="brand-logo">Logo clínica</a>
+			  <a href="{% url 'index' %}" class="brand-logo">
+				  <img  class='responsive-img' src="{% static 'images/logito.png' %}" width="170" height="90" alt="logo">
+			  </a>
 			  <ul id="nav-mobile" class="right hide-on-med-and-down ">
-				<li><a href="">Quienes somos</a></li>
-				<li><a href="">Profesionales</a></li>
-				<li><a href="">Pacientes</a></li>
-				<li><a href="">Ingresar</a></li>
+				<li><a href="{% url 'quienessomos' %}">Quienes somos</a></li>
+				<li><a href="{% url 'profesionales' %}">Profesionales</a></li>
+				<li><a href="{% url 'pacientes' %}">Pacientes</a></li>
+				<li><a href="{% url 'login' %}">Ingresar</a></li>
+				{% if user.is_authenticated %}
+				<li><a href="{% url 'ver_mi_ficha' %}">Mi ficha</a></li>
+				<li><a href="{% url 'logout' %}">Salir</a></li>
+				{% endif %}
 			  </ul>
 			</div>
 		  </nav>
+		</div>
 	{% endblock %}
 
 

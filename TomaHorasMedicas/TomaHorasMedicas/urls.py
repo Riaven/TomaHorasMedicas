@@ -24,7 +24,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     #Para agregar lo de las noticias
-    url(r'^inicio/', include ('apps.news.urls')),
+    path('inicio/', include ('apps.news.urls')),
     path('profesionales/', include('apps.profesional.urls')),
     path('pacientes/', include('apps.paciente.urls')),
     url('login/', include('apps.login.urls')),

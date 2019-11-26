@@ -38,7 +38,7 @@ def eliminarProfesional(request, id_profesional):
     if request.method == 'POST':
         profesional.delete()
         redirect('profesionales')
-    return (request, 'administracion/eliminarprofesional', {'profesional':profesinal})
+    return (request, 'administracion/eliminarprofesional', {'profesional':profesional})
 
 
 #Modificar un profesional

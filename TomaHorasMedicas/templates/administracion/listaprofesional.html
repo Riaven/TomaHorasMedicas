@@ -36,7 +36,7 @@
             <h5>{{ profesional.sector }}</h5>
             <h5>{{ profesional.horarioAtencion }}</h5>
         </div>
-
+        {% if request.user.is_superuser %}
         <div class="col s3">
             <button class="btn waves-effect waves-light"  name="action">Eliminar
                 <i class="material-icons right">done</i>
@@ -46,6 +46,7 @@
                 <i class="material-icons right">done</i>
             </button>
         </div>
+        {% endif %}
     </div>
     
     
