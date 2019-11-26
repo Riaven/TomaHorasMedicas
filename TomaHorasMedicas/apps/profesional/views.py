@@ -32,3 +32,25 @@ def listarProfesionales(request):
     
     return render (request, 'administracion/listaprofesional.html', contexto)
 
+#Eliminar un profesional
+def eliminarProfesional(request, id_profesional):
+    profesional = Profesional.objects.get(id = id_profesional)
+    if request.method == 'POST':
+        profesional.delete()
+        redirect('profesionales')
+    return (request, 'administracion/eliminarprofesional', {'profesional':profesinal})
+
+
+#Modificar un profesional
+def modificarProfesional(request, id_profesional):
+    profesional = Profesional.objects.get(id = id_profesional)
+    if request.method == 'GET':
+        form = ProfesionalForm(instance=profesional)
+    else:
+        form = ProfesionalForm(request.POST, instance=profesional)
+        if form.is_valid():
+            form.save()
+            return redirect('profesionales')
+    return render(request, 'administracion/modificarprofesional.html', {'form': form})
+
+

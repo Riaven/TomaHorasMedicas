@@ -7,16 +7,40 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
             
-        <div class="row">
-            {{ form.as_p}}
+        <div class="row center-align">
+            <div class="col s3"></div>
+            {{ form.rut|materializecss:'s6 ' }}
             
         </div>
     
         <div class="row center">
-            <button class="btn  waves-light" type="submit" name="action">Guardar
+            <button class="btn  waves-light" type="submit" name="action">Activar mi cuenta
                 <i class="material-icons ">done</i>
             </button>
         </div>
+        <br><br>
+        <div class="row">
+                <div class="col s12">
+                  <div class="card-panel  orange darken-3">
+                    <span class="white-text center-align">Si ha obtenido una ficha hace menos de 3 días, es probable que esta no se encuentre
+                        aún en el sistema, por lo mismo no contará con un usuario con su R.U.N. y no podrá activar la cuenta.
+                           
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                    <div class="col s12">
+                      <div class="card-panel  red">
+                        <span class="white-text center-align">
+                            Si es que ha obtenido su ficha hace más de 3 días y aún no puede activar su cuenta, por favor diríjate personalmente al 
+                            mesón de atención o llame al (2) 2611 5900 y solicite la integración de su ficha al sistema indicando su R.U.N.
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                       
     </form>
 
 {% endblock %}

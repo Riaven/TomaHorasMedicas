@@ -26,13 +26,13 @@
         </div>
 
         <div class="col s3">
-            <button class="btn waves-effect waves-light"  name="action">Eliminar
-                <i class="material-icons right">done</i>
-            </button>
+                <a class="btn waves-effect waves-light red" href="{% url 'eliminar_ficha' paciente.rut %}">Eliminar
+                    <i class="material-icons right">edit</i>
+                </a>
 
-            <button class="btn waves-effect waves-light"  name="action">Modificar
-                <i class="material-icons right">done</i>
-            </button>
+                <a class="btn waves-effect waves-light green" href="{% url 'modificar_paciente' paciente.rut %}">Editar
+                        <i class="material-icons right">edit</i>
+                </a>
         </div>
     </div>
     

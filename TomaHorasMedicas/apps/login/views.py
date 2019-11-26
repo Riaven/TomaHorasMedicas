@@ -27,7 +27,7 @@ def activarCuenta(request):
                 
                 #Si el usuario esta activo 
                 if usuario.is_active:
-                    return HttpResponse('User ya esta activo')
+                    return render(request, 'login/usuarioyactivo.html')
                 else:
                     #Cuando está inactivo, cambia el estado del usuario a activo
                     usuario.is_active = True
@@ -39,10 +39,10 @@ def activarCuenta(request):
                     
                     cambiarContrasena(correo)
                     
-                return HttpResponse('User activado :) al correo ' + correo)
+                return render(request, 'login/activacionenviada.html', {'correo':correo})
                
             except Exception as e:
-                 return HttpResponse(e)
+                return render(request, 'login/erroractivar.html')
 
     #si el metodo el GET
     else:

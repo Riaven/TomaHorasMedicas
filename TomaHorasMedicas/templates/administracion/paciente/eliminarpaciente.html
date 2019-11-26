@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load materializecss %}
+
+{% block content %}
+
+
+
+        
+<div class="container">
+    <div class="row center">
+        <form method="post">
+            {% csrf_token %}
+                <h3>¿Desea eliminar el registro de {{ paciente.rut }}?</h3>
+                
+                <button class="btn waves-effect waves-light red" type="submit">Sí, eliminar</button>
+                    <a class="btn waves-effect waves-light blue" href="{% url 'listar_fichas' %}">Cancelar</a>
+        </form>
+                
+    </div>
+</div>
+
+ 
+
+ {% endblock %}

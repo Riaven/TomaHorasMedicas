@@ -24,13 +24,15 @@ def eliminarUsuario(user_rut):
 #Eliminar paciente
 def eliminarFicha(request, rut):
     #Se obtiene el objeto que tenga el mismo rut que el de la ficha
-    ficha = Paciente.objects.get(rut = rut)
+    paciente = Paciente.objects.get(rut = rut)
     if request.method == 'POST':
         # Se elimina la ficha
-        ficha.delete()
+        paciente.delete()
         #Se elimina el usuario
         eliminarUsuario(rut)
-        return redirect('listarfichas')
+        return redirect('listar_fichas')
+    #Envía el registro de paciente
+    return render(request, 'administracion/paciente/eliminarpaciente.html', {'paciente':paciente})
 
 #Para crear una nueva ficha médica
 def nuevoPaciente(request):
@@ -46,7 +48,7 @@ def nuevoPaciente(request):
             email = request.POST['email']
             #Llama a la funcion para crear un usuario, se le envía el nombre de usuaio y el email
             crearUser(user, email)
-        return redirect('profesionales')
+        return redirect('lista_fichas')
     #En el caso de que fuera un GET, despliega el formulario
     else:
         form = PacienteForm()
@@ -58,8 +60,18 @@ def listarFichas(request):
     contexto = {'pacientes' : paciente}
     return render(request, 'administracion/paciente/listapacientes.html', contexto)
 
-def modificarFicha(request, rut):
-    pass
+
+
+def modificarPaciente(request, rut):
+    paciente = Paciente.objects.get(rut = rut)
+    if request.method == 'GET':
+        form = PacienteForm(instance= paciente)
+    else:
+        form = PacienteForm(request.POST, instance=paciente)
+        if form.is_valid():
+            form.save()
+        return redirect('lista_fichas')
+    return render(request, 'administracion/paciente/nuevopaciente.html', {'form': form})
 #Toma de horas
 
 #Un usuario no puede tomar más de una hora con un mismo profesional

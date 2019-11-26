@@ -25,3 +25,4 @@ def crearNoticia(request):
     else:
         form = NoticiasForm()
     return render (request, 'principal/crearnoticia.html', {'form': form})
+

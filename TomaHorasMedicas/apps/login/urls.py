@@ -3,7 +3,7 @@ from django.conf.urls import include, url
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 urlpatterns = [
-    url(r'^$', activarCuenta, name='activarcuenta'),
+    url(r'^activarcuenta$', activarCuenta, name='activarcuenta'),
     #La carpeta registration y los templates se deben de llamar igual que originalmente en Django, para poder sobreescribirlos
     url(r'^password_reset_done', PasswordResetDoneView.as_view(), 
         {'template_name': 'registration/password_reset_done.html'}, 
