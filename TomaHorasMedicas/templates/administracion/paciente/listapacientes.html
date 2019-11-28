@@ -18,42 +18,47 @@
 
 
 
-{% if pacientes %}
-    {% for paciente in pacientes %}
+<table class="table table-bordered">
+    <thead>
+      <tr>
 
-    <hr>
-    <div class="row">
-        <div class="col s3">
-            <h4>{{ paciente.rut }}</h4>
-            <h4>{{ paciente.nombre }}  {{paciente.apellido}}</h4>
-        </div>
-        <div class="col s4">
-            <h4>{{ paciente.fechaNacimiento }}</h4>
-            
-        </div>
+        <td><b> Rut</b></td>
+        <td><b>Nombre</b></td>
+        <td style="width: 250px;"><b>Apellido</b></td>
+        <td><b>Fecha de Nacimiento</b></td>
+        <td><b>Teléfono</b></td>
+        <td><b>Estado Civil</b></td>
+        <td><b>Acciones</b></td>
+      </tr>
+    </thead>
+    <tbody>
+      {% if pacientes %}
+      {% for paciente in pacientes %}
+      <tr>
 
-        {% if request.user.is_superuser %}
+        <td>{{ paciente.rut }}</td>
+        <td>{{ paciente.nombre }}</td>
+        <td>{{ paciente.apellido }}</td>
+        <td>{{ paciente.fechaNacimiento }}</td>
+        <td>{{ paciente.telefono }}</td>
+        <td>{{ paciente.estadoCivil }}</td>
+        <td>
+          <a class="btn waves-effect waves-light orange" href="{% url 'modificar_paciente' paciente.rut %}">Editar</a>
+          <a class="btn waves-effect waves-light red" href="{% url 'eliminar_ficha' paciente.rut %}">Eliminar</a>
 
-        <div class="col s3">
-                <a class="btn waves-effect waves-light red" href="{% url 'eliminar_ficha' paciente.rut %}">Eliminar
-                    <i class="material-icons right">edit</i>
-                </a>
 
-                <a class="btn waves-effect waves-light green" href="{% url 'modificar_paciente' paciente.rut %}">Editar
-                        <i class="material-icons right">edit</i>
-                </a>
-        </div>
+        </td>
+      </tr>
 
-        {% endif%}
-    </div>
-    
-    
-    {% endfor %}
-    {% else %}
-    <h1>No hay pacientes</h1>
-  
-{% endif %}
+      {% endfor %}
 
+      {% else %}
+
+      <h1>No existen registros de pacientes, vuelva  intentar más tarde</h1>
+
+      {% endif %}
+    </tbody>
+  </table>
 
 
 {% endblock %}

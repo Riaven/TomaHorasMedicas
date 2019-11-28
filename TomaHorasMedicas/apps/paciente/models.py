@@ -3,16 +3,16 @@ from datetime import datetime
 
 # Create your models here.
 class Paciente (models.Model):
-    TIPO_PROBLEMAS = (('C', 'Cardiaco'),
-                      ('E', 'Endocrino'),
-                      ('CI', 'Circulación'),
-                      ('D', 'Digestivo'),
-                      ('T', 'Tensión arterial'),
-                      ('N', 'Ninguno'))
-    ESTADO_CIVIL = (('S' , 'Soltero'),
-                    ('V' , 'Viudo'),
-                    ('C' , 'Casado'),
-                    ('D' , 'Divorsiado'))
+    TIPO_PROBLEMAS = (('Cardiaco', 'Cardiaco'),
+                      ('Endocrino', 'Endocrino'),
+                      ('Circulación', 'Circulación'),
+                      ('Digestivo', 'Digestivo'),
+                      ('Tensión arterial', 'Tensión arterial'),
+                      ('Ninguno', 'Ninguno'))
+    ESTADO_CIVIL = (('Soltero' , 'Soltero'),
+                    ('Viudo' , 'Viudo'),
+                    ('Casado' , 'Casado'),
+                    ('Divorciado' , 'Divorciado'))
     rut = models.CharField(max_length=9)
     nombre = models.CharField(max_length=10)
     apellido = models.CharField(max_length=20)

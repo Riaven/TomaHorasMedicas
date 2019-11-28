@@ -48,7 +48,7 @@ def nuevoPaciente(request):
             email = request.POST['email']
             #Llama a la funcion para crear un usuario, se le envía el nombre de usuaio y el email
             crearUser(user, email)
-        return redirect('lista_fichas')
+        return redirect('listar_fichas')
     #En el caso de que fuera un GET, despliega el formulario
     else:
         form = PacienteForm()
@@ -64,13 +64,17 @@ def listarFichas(request):
 
 def modificarPaciente(request, rut):
     paciente = Paciente.objects.get(rut = rut)
+    usuario = User.objects.get(username=rut)
     if request.method == 'GET':
         form = PacienteForm(instance= paciente)
     else:
         form = PacienteForm(request.POST, instance=paciente)
         if form.is_valid():
             form.save()
-        return redirect('lista_fichas')
+            correo = request.POST['email']
+            usuario.email = correo
+            usuario.save()
+        return redirect('listar_fichas')
     return render(request, 'administracion/paciente/nuevopaciente.html', {'form': form})
 #Toma de horas
 

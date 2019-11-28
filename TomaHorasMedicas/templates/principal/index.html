@@ -5,8 +5,55 @@
 {% block content %}
 {% csrf_token %}
 
-<h1 class="titulo-centrado"> Bienvenido</h1>
+<h1 class="titulo-centrado"> Bienvenido a Clínica MG</h1>
 
 
+<h3 class="titulo-centrado">Noticias de la salud</h3>
+
+<div class="row">
+    <div class="col s4">
+            <div class="card">
+                    <div class="card-image">
+                      <img src="{% static 'images/medicine.png' %}">
+                      <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, nesciunt. Alias deleniti provident fugit quia est, non, quisquam soluta aut natus sunt cupiditate blanditiis officiis vitae doloribus minima aspernatur doloremque.</p>
+                    </div>
+                    <div class="card-action">
+                      <a href="#">VER</a>
+                    </div>
+                  </div>
+    </div>
+    <div class="col s4">
+            <div class="card">
+                    <div class="card-image">
+                      <img src="{% static 'images/medicine.png' %}">
+                      <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius voluptatum laboriosam sit fugiat, inventore eos tempore non impedit accusantium molestiae repudiandae nihil quaerat est voluptas voluptate veritatis. Quas, iste laudantium.</p>
+                    </div>
+                    <div class="card-action">
+                      <a href="#">VER</a>
+                    </div>
+                  </div>
+    </div>
+    <div class="col s4">
+            <div class="card">
+                    <div class="card-image">
+                      <img src="{% static 'images/medicine.png' %}">
+                      <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime laudantium saepe accusamus eveniet doloribus cumque, id nihil tempore reiciendis! Quidem deleniti nobis eos sint minima itaque, porro quod quasi sunt.</p>
+                    </div>
+                    <div class="card-action">
+                      <a href="#">VER</a>
+                    </div>
+                  </div>
+    </div>
+
+</div>
 
 {% endblock %}

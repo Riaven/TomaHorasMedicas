@@ -17,10 +17,6 @@ def nuevoProfesional(request):
         #Despliega solo un html
     return HttpResponse('administracion/nuevoprofesional.html')
 
-#Modificar profesional
-
-#ELiminar profesional
-
 #Listar profesionales
 def listarProfesionales(request):
     #Carga nuevo profesional
