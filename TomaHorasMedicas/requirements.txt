@@ -10,6 +10,6 @@ Pillow==10.2.0
 pylint==2.4.3
 pytz==2019.3
 six==1.13.0
-sqlparse==0.4.4
+sqlparse==0.5.0
 typed-ast==1.4.0
 wrapt==1.11.2
